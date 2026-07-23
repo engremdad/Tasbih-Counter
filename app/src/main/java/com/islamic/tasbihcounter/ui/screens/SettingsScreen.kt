@@ -121,6 +121,12 @@ fun SettingsScreen(
         // About
         item { SectionCard(Str.about) {
             Text(Str.aboutDesc, style = MaterialTheme.typography.bodyMedium)
+            Spacer(Modifier.height(10.dp))
+            Text(
+                Str.audioCredit,
+                style = MaterialTheme.typography.bodySmall,
+                color = MaterialTheme.colorScheme.onSurfaceVariant
+            )
         } }
 
         item { Spacer(Modifier.height(12.dp)) }

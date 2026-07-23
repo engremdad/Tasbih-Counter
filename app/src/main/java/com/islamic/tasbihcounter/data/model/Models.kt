@@ -17,13 +17,15 @@ data class Dhikr(
     val isPreset: Boolean = false
 )
 
-/** One of the 99 Names of Allah. */
+/** One of the 99 Names of Allah, with Bangla meaning, virtue (fazilat) and practice (amal). */
 @Serializable
 data class AsmaName(
     val number: Int,
     val arabic: String,
     val transliteration: String,
-    val meaning: String
+    val meaning: String,
+    val fazilat: String = "",
+    val amal: String = ""
 )
 
 /** A supplication (dua) with Arabic, transliteration, translation and its source/benefit. */
@@ -47,6 +49,7 @@ data class DailyRecord(
 
 /** Visual theme styles the user can pick in settings. */
 enum class ThemeStyle(val displayName: String) {
+    MUSHAF("মুসহাফ"),
     EMERALD("Emerald"),
     MIDNIGHT("Midnight Blue"),
     CALLIGRAPHY("Calligraphy Gold"),

@@ -56,6 +56,8 @@ import com.islamic.tasbihcounter.data.TasbihState
 import com.islamic.tasbihcounter.ui.Str
 import com.islamic.tasbihcounter.ui.TasbihViewModel
 import com.islamic.tasbihcounter.ui.components.ProgressRing
+import com.islamic.tasbihcounter.ui.components.Eyebrow
+import com.islamic.tasbihcounter.ui.components.LozengeDivider
 import com.islamic.tasbihcounter.util.Haptics
 import com.islamic.tasbihcounter.util.DhikrVoiceRecognizer
 import com.islamic.tasbihcounter.util.bn
@@ -122,6 +124,9 @@ fun CounterScreen(
             .padding(horizontal = 20.dp),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
+        Spacer(Modifier.height(10.dp))
+        Eyebrow("তাসবিহ · Dhikr")
+
         // Dhikr selector chips
         LazyRow(
             modifier = Modifier
@@ -167,7 +172,9 @@ fun CounterScreen(
             color = MaterialTheme.colorScheme.onSurfaceVariant
         )
 
-        Spacer(Modifier.height(24.dp))
+        LozengeDivider(modifier = Modifier.padding(horizontal = 32.dp))
+
+        Spacer(Modifier.height(16.dp))
 
         // Big tap ring
         Box(

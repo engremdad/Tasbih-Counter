@@ -16,6 +16,7 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.NavigationBar
 import androidx.compose.material3.NavigationBarItem
+import androidx.compose.material3.NavigationBarItemDefaults
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -32,6 +33,10 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
+import androidx.compose.foundation.layout.Box
+import androidx.compose.ui.graphics.Color
+import com.islamic.tasbihcounter.ui.components.StarLatticeBackground
+import com.islamic.tasbihcounter.ui.theme.Mushaf
 import com.islamic.tasbihcounter.ui.Str
 import com.islamic.tasbihcounter.ui.TasbihViewModel
 import com.islamic.tasbihcounter.ui.screens.AsmaulHusnaScreen
@@ -78,39 +83,53 @@ private fun TasbihAppRoot(vm: TasbihViewModel) {
     val navController = rememberNavController()
     val state by vm.state.collectAsState()
 
-    Scaffold(
-        modifier = Modifier.fillMaxSize(),
-        bottomBar = {
-            NavigationBar {
-                val backStack by navController.currentBackStackEntryAsState()
-                val current = backStack?.destination
-                Dest.entries.forEach { dest ->
-                    NavigationBarItem(
-                        selected = current?.hierarchy?.any { it.route == dest.route } == true,
-                        onClick = {
-                            navController.navigate(dest.route) {
-                                popUpTo(navController.graph.findStartDestination().id) { saveState = true }
-                                launchSingleTop = true
-                                restoreState = true
-                            }
-                        },
-                        icon = { Icon(dest.icon, contentDescription = dest.label) },
-                        label = { Text(dest.label) }
-                    )
+    StarLatticeBackground {
+        Scaffold(
+            modifier = Modifier.fillMaxSize(),
+            containerColor = Color.Transparent,
+            bottomBar = {
+                NavigationBar(
+                    containerColor = Mushaf.Ink2,
+                    contentColor = Mushaf.CreamDim
+                ) {
+                    val backStack by navController.currentBackStackEntryAsState()
+                    val current = backStack?.destination
+                    Dest.entries.forEach { dest ->
+                        NavigationBarItem(
+                            selected = current?.hierarchy?.any { it.route == dest.route } == true,
+                            onClick = {
+                                navController.navigate(dest.route) {
+                                    popUpTo(navController.graph.findStartDestination().id) { saveState = true }
+                                    launchSingleTop = true
+                                    restoreState = true
+                                }
+                            },
+                            icon = { Icon(dest.icon, contentDescription = dest.label) },
+                            label = { Text(dest.label) },
+                            colors = NavigationBarItemDefaults.colors(
+                                selectedIconColor = Mushaf.Ink,
+                                selectedTextColor = Mushaf.Gold,
+                                indicatorColor = Mushaf.Gold,
+                                unselectedIconColor = Mushaf.CreamDim,
+                                unselectedTextColor = Mushaf.CreamDim
+                            )
+                        )
+                    }
                 }
             }
-        }
-    ) { padding ->
-        NavHost(
-            navController = navController,
-            startDestination = Dest.COUNTER.route,
-            modifier = Modifier.padding(padding)
-        ) {
-            composable(Dest.COUNTER.route) { CounterScreen(state, vm) }
-            composable(Dest.NAMES.route) { AsmaulHusnaScreen(state, vm) }
-            composable(Dest.DUAS.route) { DuaScreen() }
-            composable(Dest.HISTORY.route) { HistoryScreen(state, vm) }
-            composable(Dest.SETTINGS.route) { SettingsScreen(state, vm) }
+        ) { padding ->
+            Box(Modifier.padding(padding)) {
+                NavHost(
+                    navController = navController,
+                    startDestination = Dest.COUNTER.route
+                ) {
+                    composable(Dest.COUNTER.route) { CounterScreen(state, vm) }
+                    composable(Dest.NAMES.route) { AsmaulHusnaScreen(state, vm) }
+                    composable(Dest.DUAS.route) { DuaScreen() }
+                    composable(Dest.HISTORY.route) { HistoryScreen(state, vm) }
+                    composable(Dest.SETTINGS.route) { SettingsScreen(state, vm) }
+                }
+            }
         }
     }
 }

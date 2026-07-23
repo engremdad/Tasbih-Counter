@@ -9,8 +9,8 @@ A modern, Bangla-language digital tasbih (dhikr counter) for Android, built with
 - **হ্যাপটিক ফিডব্যাক** — A subtle bead-like vibration on every count, with a stronger pulse when a goal is reached.
 - **রিসেট ও ইতিহাস** — Reset a session anytime while a daily totals log is preserved.
 - **কণ্ঠে গণনা (Voice recognition)** — Say "SubhanAllah" and the counter auto-increments.
-- **আসমাউল হুসনা** — All 99 Names of Allah with meanings, a progress counter and text-to-speech playback.
-- **কাস্টম থিম** — Five Islamic palettes (Emerald, Midnight, Calligraphy Gold, Islamic Plate, Rose) with light/dark/system modes and optional Material You dynamic color.
+- **আসমাউল হুসনা** — All 99 Names with Bangla meaning, virtue (fazilat) and practice (amal), a progress counter, and **real human recitation audio** for each name.
+- **কাস্টম থিম** — Default **Mushaf** theme: an illuminated-manuscript look (midnight emerald, gold leaf, cream text, star lattice, gilded frames). Plus five more palettes with light/dark/system modes and optional Material You dynamic color.
 - **ধারাবাহিকতা ও অর্জন (Streaks & badges)** — Daily streak tracking and unlockable achievement badges.
 - **স্মার্ট রিমাইন্ডার** — Gentle morning/evening adhkar notifications.
 - **দোয়া সংগ্রহ** — A curated collection of authentic daily supplications.
@@ -45,6 +45,10 @@ app/src/main/java/com/islamic/tasbihcounter/
 ```
 
 Requires Android SDK Platform 37 (compileSdk 37), minSdk 29.
+
+## 🎧 Audio credits
+
+99 Names pronunciation audio by **Mohammed Sadiq**, via Wikimedia Commons, licensed **CC BY-SA 4.0** (files renamed for Android; spoken content unchanged). Credit is shown in-app under Settings → About, and the full notice is bundled at `app/src/main/assets/audio_attribution.txt`.
 
 ## 📋 Permissions
 

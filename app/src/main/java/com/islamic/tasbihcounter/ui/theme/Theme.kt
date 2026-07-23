@@ -20,6 +20,7 @@ private fun darkScheme(primary: androidx.compose.ui.graphics.Color, secondary: a
     darkColorScheme(primary = primary, secondary = secondary, tertiary = tertiary)
 
 private fun schemeFor(style: ThemeStyle, dark: Boolean): ColorScheme = when (style) {
+    ThemeStyle.MUSHAF -> Mushaf.ColorScheme
     ThemeStyle.EMERALD -> if (dark) darkScheme(EmeraldDarkPrimary, EmeraldDarkSecondary, EmeraldDarkTertiary)
     else lightScheme(EmeraldPrimary, EmeraldSecondary, EmeraldTertiary)
     ThemeStyle.MIDNIGHT -> if (dark) darkScheme(MidnightDarkPrimary, MidnightDarkSecondary, MidnightDarkTertiary)
@@ -46,6 +47,8 @@ fun TasbihCounterTheme(
     }
 
     val colorScheme = when {
+        // Mushaf is a committed illuminated dark world — it ignores mode and dynamic color.
+        themeStyle == ThemeStyle.MUSHAF -> Mushaf.ColorScheme
         dynamicColor && Build.VERSION.SDK_INT >= Build.VERSION_CODES.S -> {
             val context = LocalContext.current
             if (dark) dynamicDarkColorScheme(context) else dynamicLightColorScheme(context)

@@ -42,10 +42,18 @@ object Str {
     // Asmaul Husna
     const val namesTitle = "আল্লাহর ৯৯ নাম"
     const val namesSubtitle = "আসমাউল হুসনা"
+    const val namesArabicTitle = "أَسْمَاءُ ٱللَّٰه"
     const val playAudio = "উচ্চারণ শুনুন"
+    const val listen = "শুনুন"
     const val namesProgress = "অগ্রগতি"
     const val nextName = "পরবর্তী নাম"
     const val resetNames = "শুরু থেকে"
+    const val todaysName = "আজকের নাম"
+    const val searchNames = "নাম বা অর্থ খুঁজুন…"
+    const val sectionMeaning = "অর্থ · Meaning"
+    const val sectionVirtue = "ফজিলত · Virtue"
+    const val sectionPractice = "আমল · Practice"
+    const val markCounted = "গণনায় যোগ করুন"
 
     // Duas
     const val duasTitle = "প্রয়োজনীয় দোয়া"
@@ -85,6 +93,7 @@ object Str {
     const val eveningTime = "সন্ধ্যার সময়"
     const val about = "সম্পর্কে"
     const val aboutDesc = "তাসবিহ কাউন্টার — আপনার দৈনন্দিন জিকিরের সঙ্গী।"
+    const val audioCredit = "৯৯ নামের উচ্চারণ অডিও: Mohammed Sadiq, Wikimedia Commons — CC BY-SA 4.0 লাইসেন্সে। Android-এর জন্য ফাইল পুনঃনামকরণ করা হয়েছে।"
     const val permissionNeededMic = "কণ্ঠ গণনার জন্য মাইক্রোফোন অনুমতি প্রয়োজন।"
     const val permissionNeededNotif = "রিমাইন্ডারের জন্য নোটিফিকেশন অনুমতি প্রয়োজন।"
 }
